@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Patent Analyzer - Easy to analyze even for beginners</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <script src="https://kit.fontawesome.com/9fa6d1d5d6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'patent/bootstrap/bootstrap.min.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'patent/css/styles.css' %}" media="screen">
+
+  <!-- link href="css/styles.css" rel="stylesheet" / -->
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+  <header>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container px-5">
+        <a class="navbar-brand" href="./index.html">Patent Analyzer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./descript.html">Analysis Descrption</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Analyzer Operation
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="./Word2Vec.html">[Search expression extraction] Word2Vec</a>
+                <a class="dropdown-item" href="./LDA.html">[Search expression extraction] LDA</a>
+                <a class="dropdown-item" href="./LSA.html">[Exploring technical classification] LSA</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-sign-in-alt"></i>&nbsp Log-in</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fab fa-google"></i>&nbsp&nbsp Log in with Google</button>
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="far fa-envelope"></i>&nbsp&nbsp Sign up with E-mail</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content-->
+  <div class="container px-4 px-lg-5">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+      <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+      <div class="col-lg-5">
+        <h1 class="font-weight-light">Easily analyze patents</h1>
+        <p>Start analyzing patents easily using natural language processing techniques based on big data distributed processing. Individual patent applicants and beginners can easily analyze patents.<br><br>
+          - Patent search expression extraction) Word2vec, LDA <br>
+          - Exploring technical classification) LSA
+        </p>
+        <a class="btn btn-primary" href="./Word2Vec.html">Word2vec</a>
+        <a class="btn btn-primary" href="./LDA.html">LDA</a>
+        <a class="btn btn-primary" href="./LSA.html">LSA</a>
+      </div>
+    </div>
+
+    <!-- Call to Action-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="./Word2Vec.html"><img src="./image/search1.jpg" class="d-block w-100" alt="Word2vec Shortcuts"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Word2Vec [Word to Vector]</h5>
+            <p>Using the word2vec technique, we extract the patent search expression.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="./LDA.html"><img src="./image/search2.jpg" class="d-block w-100" alt="LDA Shortscuts"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>LDA [Latent Dirichlet Allocation]</h5>
+            <p>Using the LDA topic modeling technique, the patent search expression is extracted.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="./LSA.html"><img src="./image/analyze.jpg" class="d-block w-100" alt="LSA Shortscuts"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>LSA [Latent semantic analysis]</h5>
+            <p>LSA analysis explores the technical classification within the scope of the patent.</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <br><br>
+    </div>
+
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Word2Vec</h2>
+            <p class="card-text">Word2Vec technique is used to extract words with high similarity to patent keywords. Construct a meaningful search expression through the extracted words.</p>
+          </div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_Word2Vec">More Info</a></div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">LDA</h2>
+            <p class="card-text">LDA extracts a series of words on a core topic within the scope of the patent. Construct meaningful search expressions through keywords related to core technologies.</p>
+          </div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_LDA">More Info</a></div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">LSA</h2>
+            <p class="card-text">LSA extracts a series of patents on core topics within the scope of the patent. Significant technical classification can be inferred from patent documents related to core technology.</p>
+          </div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_LSA">More Info</a></div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- notice -->
+    <div class="list-group">
+      {% for p in post_list %}
+      <a href="{{ p.get_absolute_url }}" class="list-group-item list-group-item-action">
+       <div class="d-flex w-100 justify-content-between">
+         <h5 class="mb-1">{{ p.title }}</h5>
+         <small>{{ p.created_at }}</small>
+       </div>
+       <p class="mb-1">{{ p.content }}</p>
+       <small>by Admin</small>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5">
+      <p class="m-0 text-center text-white">Copyright &copy; Parent Analyzer 2021</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
