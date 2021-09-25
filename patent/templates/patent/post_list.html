@@ -2,7 +2,6 @@
 {% load static %}
 <html lang="en">
 
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,13 +9,11 @@
   <meta name="author" content="" />
   <title>Patent Analyzer - Easy to analyze even for beginners</title>
   <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="{% static 'patent/image/favicon.png' %}" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <script src="https://kit.fontawesome.com/9fa6d1d5d6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'patent/bootstrap/bootstrap.min.css' %}" media="screen">
   <link rel="stylesheet" href="{% static 'patent/css/styles.css' %}" media="screen">
-
-  <!-- link href="css/styles.css" rel="stylesheet" / -->
 </head>
 
 <body>
@@ -28,21 +25,21 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container px-5">
-        <a class="navbar-brand" href="./index.html">Patent Analyzer</a>
+        <a class="navbar-brand" href="./">Patent Analyzer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
             class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="./descript.html">Analysis Descrption</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./descript">Analysis Descrption</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Analyzer Operation
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="./Word2Vec.html">[Search expression extraction] Word2Vec</a>
-                <a class="dropdown-item" href="./LDA.html">[Search expression extraction] LDA</a>
-                <a class="dropdown-item" href="./LSA.html">[Exploring technical classification] LSA</a>
+                <a class="dropdown-item" href="./word2vec">[Search expression extraction] Word2Vec</a>
+                <a class="dropdown-item" href="./lda">[Search expression extraction] LDA</a>
+                <a class="dropdown-item" href="./lsa">[Exploring technical classification] LSA</a>
               </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
@@ -84,16 +81,16 @@
   <div class="container px-4 px-lg-5">
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-      <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+      <div class="col-lg-4"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'patent/image/favicon.png' %}" alt="favicon" width="300px" height="300px"/></div>
       <div class="col-lg-5">
         <h1 class="font-weight-light">Easily analyze patents</h1>
         <p>Start analyzing patents easily using natural language processing techniques based on big data distributed processing. Individual patent applicants and beginners can easily analyze patents.<br><br>
           - Patent search expression extraction) Word2vec, LDA <br>
           - Exploring technical classification) LSA
         </p>
-        <a class="btn btn-primary" href="./Word2Vec.html">Word2vec</a>
-        <a class="btn btn-primary" href="./LDA.html">LDA</a>
-        <a class="btn btn-primary" href="./LSA.html">LSA</a>
+        <a class="btn btn-primary" href="./word2vec">Word2vec</a>
+        <a class="btn btn-primary" href="./lda">LDA</a>
+        <a class="btn btn-primary" href="./lsa">LSA</a>
       </div>
     </div>
 
@@ -106,21 +103,21 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <a href="./Word2Vec.html"><img src="./image/search1.jpg" class="d-block w-100" alt="Word2vec Shortcuts"></a>
+          <a href="./Word2Vec"><img src="{% static 'patent/image/search1.jpg' %}" class="d-block w-100" alt="Word2vec Shortcuts"></a>
           <div class="carousel-caption d-none d-md-block">
             <h5>Word2Vec [Word to Vector]</h5>
             <p>Using the word2vec technique, we extract the patent search expression.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <a href="./LDA.html"><img src="./image/search2.jpg" class="d-block w-100" alt="LDA Shortscuts"></a>
+          <a href="./LDA"><img src="{% static 'patent/image/search2.jpg' %}" class="d-block w-100" alt="LDA Shortscuts"></a>
           <div class="carousel-caption d-none d-md-block">
             <h5>LDA [Latent Dirichlet Allocation]</h5>
             <p>Using the LDA topic modeling technique, the patent search expression is extracted.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <a href="./LSA.html"><img src="./image/analyze.jpg" class="d-block w-100" alt="LSA Shortscuts"></a>
+          <a href="./LSA"><img src="{% static 'patent/image/analyze.jpg' %}" class="d-block w-100" alt="LSA Shortscuts"></a>
           <div class="carousel-caption d-none d-md-block">
             <h5>LSA [Latent semantic analysis]</h5>
             <p>LSA analysis explores the technical classification within the scope of the patent.</p>
@@ -146,7 +143,7 @@
             <h2 class="card-title">Word2Vec</h2>
             <p class="card-text">Word2Vec technique is used to extract words with high similarity to patent keywords. Construct a meaningful search expression through the extracted words.</p>
           </div>
-          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_Word2Vec">More Info</a></div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript#desc_Word2Vec">More Info</a></div>
         </div>
       </div>
       <div class="col-md-4 mb-5">
@@ -155,7 +152,7 @@
             <h2 class="card-title">LDA</h2>
             <p class="card-text">LDA extracts a series of words on a core topic within the scope of the patent. Construct meaningful search expressions through keywords related to core technologies.</p>
           </div>
-          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_LDA">More Info</a></div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript#desc_LDA">More Info</a></div>
         </div>
       </div>
       <div class="col-md-4 mb-5">
@@ -164,7 +161,7 @@
             <h2 class="card-title">LSA</h2>
             <p class="card-text">LSA extracts a series of patents on core topics within the scope of the patent. Significant technical classification can be inferred from patent documents related to core technology.</p>
           </div>
-          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript.html#desc_LSA">More Info</a></div>
+          <div class="card-footer"><a class="btn btn-primary btn-sm" href="./descript#desc_LSA">More Info</a></div>
         </div>
       </div>
     </div>

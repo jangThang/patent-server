@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 
 <head>
@@ -8,10 +10,11 @@
   <meta name="author" content="" />
   <title>Patent Analyzer - LSA</title>
   <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="{% static 'patent/image/favicon.png' %}" />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
-  <link href="css/styles.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/9fa6d1d5d6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'patent/bootstrap/bootstrap.min.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'patent/css/styles.css' %}" media="screen">
 </head>
 
 <body>
@@ -23,28 +26,56 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container px-5">
-        <a class="navbar-brand" href="./index.html">Patent Analyzer</a>
+        <a class="navbar-brand" href="./">Patent Analyzer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
             class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="./descript.html">Analysis Descrption</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../descript">Analysis Descrption</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Analyzer Operation
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="./Word2Vec.html">[Search expression extraction] Word2Vec</a>
-                <a class="dropdown-item" href="./LDA.html">[Search expression extraction] LDA</a>
-                <a class="dropdown-item" href="./LSA.html">[Exploring technical classification] LSA</a>
+                <a class="dropdown-item" href="../word2vec">[Search expression extraction] Word2Vec</a>
+                <a class="dropdown-item" href="../lda">[Search expression extraction] LDA</a>
+                <a class="dropdown-item" href="../lsa">[Exploring technical classification] LSA</a>
               </div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="./log-in.html">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-sign-in-alt"></i>&nbsp Log-in</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="fab fa-google"></i>&nbsp&nbsp Log in with Google</button>
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-outline-dark btn-block btn-sm"><i class="far fa-envelope"></i>&nbsp&nbsp Sign up with E-mail</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <!-- Page Content-->
   <div class="container px-4 px-lg-5">
