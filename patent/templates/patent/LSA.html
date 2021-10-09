@@ -15,6 +15,12 @@
   <script src="https://kit.fontawesome.com/9fa6d1d5d6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'patent/bootstrap/bootstrap.min.css' %}" media="screen">
   <link rel="stylesheet" href="{% static 'patent/css/styles.css' %}" media="screen">
+  <style>
+    th, td{
+      border: 1px solid #444444;
+      padding: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -78,6 +84,44 @@
     </div>
   </header>
 
+    <!-- Modal -->
+    <div class="modal fade" id="expressionModal" tabindex="-1" aria-labelledby="expressionModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="expressionModalLabel">How to write a patent search expression</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input class="form-control" type="text" placeholder="Ex) &#34;blockchain&#34; * &#34;vote&#34; *!(&#34;coin&#34;+&#34;cryptocurrency&#34;)" readonly><br>
+            <p> Construct a search expression using keywords and search operators.</p><br>
+            <table border="1">
+              <th colspan="2">search operator</th>
+              <tr>
+                <td>*(AND)</td>
+                <td>Words that must be included in search results</td>
+              </tr>
+              <tr border="1">
+                <td>+(OR)</td>
+                <td>Words that can contain only one of the input keywords</td>
+              </tr>
+              <tr border="1">
+                <td>!(NOT)</td>
+                <td>Words to be excluded from search results</td>
+              </tr>
+            </table>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   <!-- Page Content-->
   <div class="container px-4 px-lg-5">
     <br>
@@ -101,6 +145,7 @@
     <form method="post" action=".">
       {% csrf_token %}
       <input type="text" class="form-control" id="LSASearch" name="LSASearch" type="text" placeholder="Please enter the initial patent search Expression.">
+      <p data-toggle="modal" data-target="#expressionModal" style="text-align: right; color: blue">Don't know how to write a patent search expression?</p>
       <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Search</button>
     </form>
     <br>

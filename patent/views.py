@@ -39,7 +39,6 @@ def word2vec(request):
         retItems = []
 
         for item in getJson:
-            item[1] = item[1].replace("+", ",")
             retItems.append(item[1])
 
         return render(request, 'patent/word2vec.html', {'search': search, 'response': response, 'result': result, 'retItems': retItems})
@@ -52,6 +51,8 @@ def lda(request):
     # 페이지 내 POST 발생
     elif request.method == 'POST':
         search = quote(request.POST['LDASearch'])
+        if search == "":
+            return render(request, 'patent/LDA.html')
         url = 'http://localhost:12354/KR/'+search
         with urllib.request.urlopen(url) as response:
             result = response.read()
@@ -61,7 +62,6 @@ def lda(request):
         retItems = []
 
         for item in getJson:
-            item[1] = item[1].replace("+", ",")
             retItems.append(item[1])
 
         return render(request, 'patent/LDA.html', {'search': search, 'response': response, 'result': result, 'retItems': retItems})
