@@ -77,36 +77,68 @@
       </div>
     </div>
   </header>
+
   <!-- Page Content-->
   <div class="container px-4 px-lg-5">
     <br>
     <h2>[Exploring technical classification] LSA</h2>
 
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="RadiosKorean" id="RadiosKorean" value="option1" checked>
+      <input class="form-check-input" type="radio" name="Radios" id="RadiosKorean" value="option1" checked>
       <label class="form-check-label" for="RadiosKorean">
       Korean ( Korean Patent Analysis )
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="RadiosEnglish" id="RadiosEnglish" value="option2">
+      <input class="form-check-input" type="radio" name="Radios" id="RadiosEnglish" value="option2">
       <label class="form-check-label" for="RadiosEnglish">
       English ( International Patent Analysis )
       </label>
     </div>
+    <br><br>
+
+  <!-- 검색어 폼 -->
+    <form method="post" action=".">
+      {% csrf_token %}
+      <input type="text" class="form-control" id="LSASearch" name="LSASearch" type="text" placeholder="Please enter the initial patent search Expression.">
+      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Search</button>
+    </form>
+    <br>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <h4> Patent analysis in progress. . . .</h4>
+      </div>
+    </div>
 
     <br><br>
-    <input class="form-control" type="text" placeholder="Please enter the patent search Expression.">
+    <div class="card">
+      <!-- Default panel contents -->
+      <div class="card-body">
+        <h5 class="card-title">LSA Analysis Results</h5>
+        <p class="card-text">It shows the results of LSA analysis according to the patent scope of the patent search expression.
+          Identify core technologies through patent documents and major topics within the scope of the patent.
+          You can explore technical classification through LSA analysis.</p>
+      </div>
+    <!-- List group -->
+      <ul class="list-group">
+        {% for p in retItems %}
+        <li class="list-group-item">[Topic {{ forloop.counter }}] {{ p }}</li>
+        {% endfor %}
+      </ul>
+    </div>
     <br><hr>
-    <input class="form-control" type="text" placeholder="Ex) &#34;block chain&#34; * &#34;vote&#34;" readonly>
-    <!-- Heading Row-->
-    <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    </div>
-  </div>
-
-    <!-- Heading Row-->
-    <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    </div>
+    <input class="form-control" type="text" placeholder="Ex) &#34;블록체인&#34; * &#34;전자투표&#34;" readonly>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item">[Topic 1] 0.059*&#34;노드&#34; + 0.056*&#34;통신&#34; + 0.045*&#34;서비스&#34; + 0.023*&#34;무선&#34;</li>
+        <li class="list-group-item">[Topic 2] 0.044*&#34;암호&#34; + 0.043*&#34;블록&#34; + 0.036*&#34;체인&#34; + 0.032*&#34;모듈&#34;</li>
+        <li class="list-group-item">[Topic 3] 0.113*&#34;노드&#34; + 0.090*&#34;블록&#34; + 0.039*&#34;체인&#34; + 0.032*&#34;합의&#34;</li>
+    </ul>
+    <br><br>
   </div>
 
 
