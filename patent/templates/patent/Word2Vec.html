@@ -166,21 +166,22 @@
           It shows the results of Word2vec analysis according to the patent scope of the patent search expression.
           Search keywords and words with high similarity are displayed together.
           Remove words that are not related to the patent search expression, and add related words. </p>
+        <p class="card-text"> Result of analysis by {{ search }} </p>
       </div>
     <!-- List group -->
       <ul class="list-group">
         {% for p in retItems %}
-        <li class="list-group-item">[Topic {{ forloop.counter }}] {{ p }}</li>
+        <li class="list-group-item">[Keyword {{ forloop.counter }}] {{ p }}</li>
         {% endfor %}
       </ul>
     </div>
     <br><hr>
-    <input class="form-control" type="text" placeholder="Ex) &#34;블록체인&#34; * &#34;전자투표&#34;" readonly>
+    <input class="form-control" type="text" placeholder="Ex) &#34;blockchain&#34; * &#34;electronic voting&#34;" readonly>
     <br>
     <ul class="list-group">
-        <li class="list-group-item">[Topic 1] 0.059*&#34;노드&#34; + 0.056*&#34;통신&#34; + 0.045*&#34;서비스&#34; + 0.023*&#34;무선&#34;</li>
-        <li class="list-group-item">[Topic 2] 0.044*&#34;암호&#34; + 0.043*&#34;블록&#34; + 0.036*&#34;체인&#34; + 0.032*&#34;모듈&#34;</li>
-        <li class="list-group-item">[Topic 3] 0.113*&#34;노드&#34; + 0.090*&#34;블록&#34; + 0.039*&#34;체인&#34; + 0.032*&#34;합의&#34;</li>
+        <li class="list-group-item">[Keyword 1] Terms related to &#34;blockchain&#34; => transaction, device, communication, chain </li>
+        <li class="list-group-item">[Keyword 2] Terms related to &#34;electronic&#34; => vote, payment, device, privacy</li>
+        <li class="list-group-item">[Keyword 3] Terms related to &#34;vote&#34; => verification, blockchain, medical, governance</li>
     </ul>
     <br><br>
   </div>
