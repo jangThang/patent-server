@@ -33,7 +33,7 @@ def word2vec(request):
         if search == "":
             return render(request, 'patent/word2vec.html')
 
-        url = 'http://localhost:12354/EN/'+search
+        url = 'http://localhost:12354/W2V/'+search
         with urllib.request.urlopen(url) as response:
             result = response.read()
         result = result.decode('utf-8')
@@ -60,7 +60,7 @@ def lda(request):
         if search == "":
             return render(request, 'patent/LDA.html')
 
-        url = 'http://localhost:12354/KR/'+search
+        url = 'http://localhost:12354/LDA/'+search
         with urllib.request.urlopen(url) as response:
             result = response.read()
         result = result.decode('utf-8')
@@ -86,17 +86,13 @@ def lsa(request):
         if search == "":
             return render(request, 'patent/lsa.html')
 
-        url = 'http://localhost:12354/KR/'+search
+        url = 'http://localhost:12354/LSA/'+search
         with urllib.request.urlopen(url) as response:
             result = response.read()
         result = result.decode('utf-8')
         search = unquote_plus(search)
 
         getJson = json.loads(result)
-        retItems = []
-
-        for item in getJson:
-            item[1] = item[1].replace("+", ",")
-            retItems.append(item[1])
+        retItems = getJson
 
         return render(request, 'patent/LSA.html', {'search': search, 'retItems': retItems})
