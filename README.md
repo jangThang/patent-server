@@ -27,7 +27,7 @@
 ### How to run server
 
 1. Before opening the main server, `mongo DB` and `middle server` must be activated.
-    install: [Mongo DB](https://www.mongodb.com/), [Middle server](https://github.com/simp7/patent-middle-server)
+   <br>install: [Mongo DB](https://www.mongodb.com/), [Middle server](https://github.com/simp7/patent-middle-server)
 2. In the terminal, type `python manage.py runserver`.
 
 If you don't have the `Django`, please install it from [this link](https://pypi.org/project/Django/).
